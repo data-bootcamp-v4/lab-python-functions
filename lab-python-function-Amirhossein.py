@@ -1,25 +1,20 @@
 products = ["t-shirt", "mug", "hat", "book", "keychain"]
 inventory = {}
 customer_orders = set()
-#def initialize_inventory(produ)
+def initialize_inventory(products):
+  for item in products:
+    inventory[item]= int(input(f"How many {item}s are there in the inventory?"))
+  return inventory
 
+def get_customer_orders():
 
-
-# 3rd Assignment
-for item in products:
-  inventory[item]= int(input(f"How many {item}s are there in the inventory?"))
-
-# 5th Assignment
-"""
-for orders in range(3):
-   customer_orders.add(input(f"what is the order #{orders+1}:"))
-"""
-continue_ordering = True
-while continue_ordering:
-   customer_orders.add((input(f"what is your order? ")))
-   next_order = input(f"Was that all?(yes/no)")
-   if next_order == 'no':
-    continue_ordering = False
+    continue_ordering = True
+    while continue_ordering:
+        customer_orders.add((input(f"what is your order? ")))
+        next_order = input(f"Was that all?(yes/no)")
+        if next_order == 'yes':
+            continue_ordering = False
+    return customer_orders
 
 # 6th Assignment
 print("Your orders are:")
