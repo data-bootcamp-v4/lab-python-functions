@@ -20,30 +20,27 @@ def calculate_order_statistics(inventory, customers_orders):
     total_products_ordered = len(customer_orders)
     total_productas = sum(inventory.values())
     percentage_of_products_ordered = round(total_products_ordered / total_productas , 2)
-    order_status = (total_productas, percentage_of_products_ordered)
-    return order_status
+    order_stat = (total_productas, percentage_of_products_ordered)
+    return order_stat
 
 
 def update_inventory(invetory, customers_orders):
    for product in customer_orders:
       inventory[product] -= 1
 
-   
+def print_order_statistics(order_stat):
+    print("Order Statistics:")
+    print(f"Total Products Ordered: {order_stat[0]}")
+    print(f"Percentage of Products Ordered: {order_stat[1] * 100}%")
+    
 # 6th Assignment
 print("Your orders are:")
 for orders in customer_orders:
   print(orders)
 
-# 7th Assignment
-total_products_ordered = len(customer_orders)
-total_productas = sum(inventory.values())
-percentage_of_products_ordered = round(total_products_ordered / total_productas , 2)
-order_status = (total_productas, percentage_of_products_ordered)
 
 # 8th Assignment
-print("Order Statistics:")
-print(f"Total Products Ordered: {total_products_ordered}")
-print(f"Percentage of Products Ordered: {percentage_of_products_ordered * 100}%")
+
 
 # 9th Assignment
 
