@@ -32,21 +32,10 @@ def print_order_statistics(order_stat):
     print("Order Statistics:")
     print(f"Total Products Ordered: {order_stat[0]}")
     print(f"Percentage of Products Ordered: {order_stat[1] * 100}%")
-    
-# 6th Assignment
-print("Your orders are:")
-for orders in customer_orders:
-  print(orders)
 
+def print_updated_inventory(inventory):
+    print("Updated inventory has:")
+    for product,quantity in inventory.items():
+        print(f"{product}:{quantity}")
 
-# 8th Assignment
-
-
-# 9th Assignment
-
-
-# 10th Assignment
-print("Updated inventory has:")
-for product,quantity in inventory.items():
-  print(f"{product}:{quantity}")
 
