@@ -16,6 +16,11 @@ def get_customer_orders():
             continue_ordering = False
     return customer_orders
 
+def update_inventory(invetory, customers_orders):
+   for product in customer_orders:
+      inventory[product] -= 1
+      
+   
 # 6th Assignment
 print("Your orders are:")
 for orders in customer_orders:
@@ -33,8 +38,7 @@ print(f"Total Products Ordered: {total_products_ordered}")
 print(f"Percentage of Products Ordered: {percentage_of_products_ordered * 100}%")
 
 # 9th Assignment
-for product in customer_orders:
-  inventory[product] -= 1
+
 
 # 10th Assignment
 print("Updated inventory has:")
