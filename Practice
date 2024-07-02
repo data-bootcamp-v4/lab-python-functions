@@ -1,0 +1,98 @@
+# Step 1: Define the list of products
+products = ["t-shirt", "mug", "hat", "book", "keychain"]
+
+# Step 2: Create an empty dictionary for inventory
+inventory = {}
+
+# Step 3: Ask the user to input the quantity of each product available in the inventory
+print("Enter the quantity for each product:")
+for product in products:
+    quantity = int(input(f"Quantity for {product}: "))
+    inventory[product] = quantity
+
+# Step 4: Create an empty set for customer orders
+customer_orders = set()
+
+# Step 5: Ask the user to input the name of three products that a customer wants to order
+print("Enter the name of three products that a customer wants to order:")
+for _ in range(3):
+    product_order = input("Product name: ").strip()
+    if product_order in products:
+        customer_orders.add(product_order)
+    else:
+        print(f"{product_order} is not available. Please choose from {products}.")
+
+# Step 6: Print the products in the customer_orders set
+print("\nCustomer Orders:")
+for order in customer_orders:
+    print(order)
+
+# Step 7: Calculate order statistics
+total_products_ordered = len(customer_orders)
+percentage_ordered = (total_products_ordered / len(products)) * 100
+
+order_status = (total_products_ordered, percentage_ordered)
+
+# Step 8: Print the order statistics
+print("\nOrder Statistics:")
+print(f"Total Products Ordered: {order_status[0]}")
+print(f"Percentage of Products Ordered: {order_status[1]:.2f}%")
+
+# Define the update_inventory function
+def update_inventory(customer_orders):
+    for customer_order in customer_orders:
+        inventory[customer_order] = inventory[customer_order] - 1
+
+# Step 9: Update the inventory by calling the update_inventory function
+update_inventory(customer_orders)
+
+# Step 10: Print the updated inventory
+print("\nUpdated Inventory:")
+for product, quantity in inventory.items():
+    print(f"{product}: {quantity}")
+
+
+
+      def calculate_total_price(customer_orders):
+    total_price = 0
+    for product in customer_orders:
+        valid_input = False
+        while not valid_input: 
+            try:   
+                price=int(input("Enter the price of {}: ".format(product)))
+                if price <= 0:
+                    print("Invalid input")
+                elif price > 0:
+                    valid_input = True
+                    total_price += price
+            except ValueError:
+                print("Enter a valid price")
+    return total_price
+
+customer_orders=('book', 'hat', 'mug')
+total=calculate_total_price(customer_orders)
+print(total)
+
+
+def get_customer_orders(inventory):
+    customer_orders=set()
+    for product in range(5):
+       valid_input = False
+       while not valid_input: 
+        try:
+            x= input("Enter the product you want to order:")
+            if x not in inventory:
+                print(f"{x} is not available. Please choose from {inventory}.")
+            elif inventory[x]==0:
+                print("Stock unavailable")    
+            else:
+                valid_input = True
+                y=customer_orders.add(x)
+        except ValueError:
+            print("Enter a valid input")
+    return y   
+    
+    
+inventory = {'t-shirt': 100, 'mug': 0, 'hat': 100, 'book': 100, 'keychain': 100}
+get_customer_orders(inventory)
+help(list)
